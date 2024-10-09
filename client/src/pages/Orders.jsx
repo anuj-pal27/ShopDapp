@@ -15,7 +15,7 @@ const Orders = () => {
 
   const getOrders = async () => {
     try {
-      const res = await fetch(`${import.meta.emv.VITE_APP_URL}/placedOrder`, {
+      const res = await fetch(`${import.meta.env.VITE_APP_URL}/placedOrder`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

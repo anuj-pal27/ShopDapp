@@ -33,7 +33,7 @@ const CheckOut = () => {
 
   const getItem = async () => {
     try {
-      const res = await fetch(`${import.meta.emv.VITE_APP_URL}/cart`, {
+      const res = await fetch(`${import.meta.env.VITE_APP_URL}/cart`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +93,7 @@ const CheckOut = () => {
       setStatusMessage(`Transaction successful!`);
       dispatch(clear());
 
-      const transactionDetails = await fetch(`${import.meta.emv.VITE_APP_URL}/payment`, {
+      const transactionDetails = await fetch(`${import.meta.env.VITE_APP_URL}/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +106,7 @@ const CheckOut = () => {
         }),
       });
 
-      await fetch(`${import.meta.emv.VITE_APP_URL}/orders`, {
+      await fetch(`${import.meta.env.VITE_APP_URL}/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
