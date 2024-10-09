@@ -32,13 +32,15 @@ function App() {
   return (
     <>
       <Navbar>
-        <Routes>
-          <Route path="/" element={<Home data={data} loading={loading} />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/wallet" element={<Wallet />} />
-          <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/order" element={<Orders />} />
-        </Routes>
+        <div className="overflow-x-hidden">
+          <Routes>
+            <Route path="/" element={<Home data={data} loading={loading} />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/checkout" element={<CheckOut />} />
+            <Route path="/order" element={<Orders />} />
+          </Routes>
+        </div>
       </Navbar>
     </>
   );
