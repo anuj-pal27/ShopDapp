@@ -36,4 +36,4 @@ npm run dev 2nd Terminal (for the Express server):
 
 node index.js This will start both the React frontend on its development server and the Express backend.
 
-Access the Application Frontend (React): http://localhost:3000 Backend (Express API): http://localhost:5000 Additional Notes The frontend React app will automatically proxy API requests to the backend when running on http://localhost:3000. Ensure MongoDB is running locally for the backend to connect to the database properly.
+Access the Application Frontend (React): http://localhost:5173/ Backend (Express API): http://localhost:5000 Additional Notes The frontend React app will automatically proxy API requests to the backend when running on http://localhost:3000. Ensure MongoDB is running locally for the backend to connect to the database properly.

@@ -1,16 +1,23 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { useState, useEffect } from "react";
-import { PublicKey } from "@solana/web3.js";
+import { PublicKey,Connection ,clusterApiUrl } from "@solana/web3.js";
 
 const AirdropPage = () => {
   const wallet = useWallet();
-  const { connection } = useConnection();
+  const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+  // const { connection } = useConnection("https://solana-devnet.g.alchemy.com/v2/m3_KI26guxU63CyIdr05QA19iMBoV_XX","confirmed");
   const [amount, setAmount] = useState("");
   const [balance, setBalance] = useState("");
 
+  // useEffect(() => {
+  //   getBalance();
+  // });
+
   useEffect(() => {
-    getBalance();
-  });
+    if (wallet.connected && wallet.publicKey) {
+      getBalance();
+    }
+  }, [wallet.connected, wallet.publicKey]); // Run when wallet connection state changes
   const getBalance = async () => {
     const balanceInSOL = await connection.getBalance(
       new PublicKey(wallet.publicKey)
@@ -19,7 +26,8 @@ const AirdropPage = () => {
   };
 
   const sendAirDropToUser = async () => {
-    await connection.requestAirdrop(wallet.publicKey, amount * 10 ** 9);
+ 
+   const response  =  await connection.requestAirdrop(wallet.publicKey, amount * 10 ** 9);
     alert("Airdrop successful");
   };
 

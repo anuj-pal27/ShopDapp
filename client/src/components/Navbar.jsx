@@ -108,7 +108,7 @@ export const Navbar = ({ children }) => {
           </NavLink>
         </div>
       </nav>
-      <main>{children}</main>
+      <main className="w-screen">{children}</main>
     </>
   );
 };

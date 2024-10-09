@@ -31,8 +31,8 @@ function App() {
   }, [data]);
   return (
     <>
-      <Navbar>
         <div className="overflow-x-hidden">
+      <Navbar>
           <Routes>
             <Route path="/" element={<Home data={data} loading={loading} />} />
             <Route path="/cart" element={<Cart />} />
@@ -40,8 +40,9 @@ function App() {
             <Route path="/checkout" element={<CheckOut />} />
             <Route path="/order" element={<Orders />} />
           </Routes>
-        </div>
+      
       </Navbar>
+      </div>
     </>
   );
 }
