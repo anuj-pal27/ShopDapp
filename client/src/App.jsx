@@ -18,7 +18,7 @@ function App() {
       async function fetchData() {
         setLoading(true);
         axios
-          .get(import.meta.env.VITE_LOCALHOST)
+          .get(import.meta.env.VITE_APP_URL)
           .then((newdata) => setData(newdata.data))
           .catch((err) => console.log(err));
         // axios.get('http://localhost:8080').then((newdata)=>setData(newdata.data)).catch((err)=>console.log(err))

@@ -14,7 +14,7 @@ main().then(()=>console.log("connected")).catch((err)=>console.log(err))
 const PORT = process.env.PORT;
 
 app.use(cors({
-  origin: process.env.VITE_LOCALURL , // Adjust for deployment
+  origin: process.env.CLIENT_ORIGIN , // Adjust for deployment
 }));
 
 app.use(express.json());
