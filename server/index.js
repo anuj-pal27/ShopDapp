@@ -73,7 +73,6 @@ app.post("/placedOrder", async (req, res) => {
   try {
     // Create and save the payment document
     const placedOrders = await Order.find({ user: req.body.user });
-    console.log(placedOrders.products)   
     let orders = [];
     for (let i = 0; i < placedOrders.length; i++) { 
       const placedOrder = placedOrders[i].products;
@@ -82,13 +81,13 @@ app.post("/placedOrder", async (req, res) => {
         orders.push(product);
       }
     }
+    // Return a success response
     res.status(201).json(orders);
   } catch (err) {
     console.error(err); // Log the error for debugging
     res.status(500).json({ success: false, error: err.message });
   }
 });
-
 app.post("/cart", async (req, res) => {
   try {
     let orders=[]
@@ -96,7 +95,6 @@ app.post("/cart", async (req, res) => {
       const data = await Product.findOne({ _id:  req.body[i]  });
       orders.push(data)
     }
-    // console.log(orders)
     res.status(201).json({ orders });
   } catch (err) {
     console.error(err); // Log the error for debugging
